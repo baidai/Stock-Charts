@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from stc.views import company_article_list, ChartData
 
+ 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('companies/', company_article_list, name='companies'),
+    path('api/chart/data/', ChartData.as_view(), name='api-chart-data')
 ]
