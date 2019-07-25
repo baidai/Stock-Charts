@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('companies/', company_article_list, name='companies'),
     path('api/chart/data/', ChartData.as_view(), name='api-chart-data'),
+   # path('close/', market_close, name='close'),
 	path('dash', dash),
 	path('dash', dash_ajax),
 	]

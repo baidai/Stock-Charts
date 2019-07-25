@@ -16,10 +16,12 @@ colorscale = cl.scales['9']['qual']['Paired']
 
 df_symbol = pd.read_csv('tickers.csv')
 
+
 def dispatcher(request):
     '''
     Main function
     @param request: Request object
+    takes in request, content type and return
     '''
 
     app = _create_app()
@@ -40,7 +42,7 @@ def dispatcher(request):
 def _create_app():
     ''' Creates dash application '''
 
-    app = dash.Dash(csrf_protect=False)
+    app = dash.Dash(csrf_exempt=True)
     app.layout = html.Div([
         html.Div([
             html.H2('Quandle Finance Explorer',
@@ -138,4 +140,4 @@ def bbands(price, window_size=10, num_of_std=5):
 
 if __name__ == '__main__':
     app = _create_app()
-    app.run_server()
+    app.run_server() #dash will auto refresh when a change is made to code
