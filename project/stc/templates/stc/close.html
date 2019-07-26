@@ -23,6 +23,7 @@
 		    success: function(data){
 		        stockDate = data.stock_date
 		        stockClose = data.stock_close
+		        stockname = data.stock_name
 		        stockChart()
 
 		    },
@@ -46,7 +47,7 @@
 		        margin: {l:200},
 		    };
 
-		    Plotly.newPlot('end', data, layout);
+		    Plotly.newPlot('close_price', data, layout);
 		}
 
 		})
